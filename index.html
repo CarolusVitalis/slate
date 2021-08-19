@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -299,12 +299,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-01e575f2.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -312,282 +309,383 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#flapjack-python-package" class="toc-h1 toc-link" data-title="Flapjack Python Package">Flapjack Python Package</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#importing-flapjack" class="toc-h1 toc-link" data-title="Importing Flapjack">Importing Flapjack</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#connecting-to-flapjack" class="toc-h1 toc-link" data-title="Connecting to Flapjack">Connecting to Flapjack</a>
+          </li>
+          <li>
+            <a href="#flapjack-39-s-models" class="toc-h1 toc-link" data-title="Flapjack's models">Flapjack's models</a>
+          </li>
+          <li>
+            <a href="#functions" class="toc-h1 toc-link" data-title="Functions">Functions</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#1-create-function" class="toc-h2 toc-link" data-title="1. Create Function">1. Create Function</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#2-get-function" class="toc-h2 toc-link" data-title="2. Get Function">2. Get Function</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#3-patch-function" class="toc-h2 toc-link" data-title="3. Patch Function">3. Patch Function</a>
+                  </li>
+                  <li>
+                    <a href="#4-delete-function" class="toc-h2 toc-link" data-title="4. Delete Function">4. Delete Function</a>
+                  </li>
+                  <li>
+                    <a href="#5-analysis-function" class="toc-h2 toc-link" data-title="5. Analysis Function">5. Analysis Function</a>
+                  </li>
+                  <li>
+                    <a href="#6-plot-function" class="toc-h2 toc-link" data-title="6. Plot Function">6. Plot Function</a>
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='http://flapjack.rudge-lab.org/'>Sign Up to Flapjack</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='flapjack-python-package'>Flapjack Python Package</h1>
+<p>This document covers the basics of how to use the Flapjack Python Package. Keep in mind that you are only able to access studies to which: you are the owner of, studies that has been previously shared with you, or public studies.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>.</p>
+<h1 id='importing-flapjack'>Importing Flapjack</h1><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">flapjack</span>
+<span class="kn">from</span> <span class="nn">flapjack</span> <span class="kn">import</span> <span class="n">Flapjack</span>
+</code></pre></div>
+<p>To import Flapjack you need to use the command on the side.</p>
+<h1 id='connecting-to-flapjack'>Connecting to Flapjack</h1><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">fj</span><span class="o">=</span><span class="n">Flapjack</span><span class="p">(</span><span class="err">‘</span><span class="n">flapjack</span><span class="p">.</span><span class="n">rudge</span><span class="o">-</span><span class="n">lab</span><span class="p">.</span><span class="n">org</span><span class="p">:</span><span class="mi">8000</span><span class="err">’</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>After the Flapjack object has been created you have to log-in, using the following command:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">fj</span><span class="p">.</span><span class="n">log_in</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">passwd</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>If the username or password are not found or erroneous, you will get the following error: <br>
+<code>TypeError: &#39;int&#39; object is not subscriptable</code></p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>The Flapjack package works by creating an object called flapjack, which is the connection to the system, and where you can specify which instance –either online or offline– you want to connect to, in this example we are connecting to Flapjack’s main instance.</p>
+<h1 id='flapjack-39-s-models'>Flapjack&#39;s models</h1>
+<p>The possible models that you can specify, and its attributes are as follows.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p><a name="Table1"></a>
+Table 1. Flapjack’s models and their attributes. Attributes in <em>italics</em> are optional when creating its model.</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<table><thead>
+<tr>
+<th style="text-align: right">Model</th>
+<th style="text-align: left">Attributes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">study</td>
+<td style="text-align: left">name <br> description <br> <em>doi</em> <br> <em>owner</em> <br> <em>shared_with</em> <br> public</td>
+</tr>
+<tr>
+<td style="text-align: right">assay</td>
+<td style="text-align: left">study <br> name <br> machine <br> description <br> temperature</td>
+</tr>
+<tr>
+<td style="text-align: right">media</td>
+<td style="text-align: left">owner <br> name <br> description</td>
+</tr>
+<tr>
+<td style="text-align: right">strain</td>
+<td style="text-align: left">owner <br> name <br> description</td>
+</tr>
+<tr>
+<td style="text-align: right">chemical</td>
+<td style="text-align: left">owner <br> name <br> description <br> <em>pubchemid</em></td>
+</tr>
+<tr>
+<td style="text-align: right">supplement</td>
+<td style="text-align: left">owner <br> name <br> chemical <br> concentration</td>
+</tr>
+<tr>
+<td style="text-align: right">dna</td>
+<td style="text-align: left">owner <br> name <br> <em>sboluri</em></td>
+</tr>
+<tr>
+<td style="text-align: right">vector</td>
+<td style="text-align: left">owner <br> name <br> dnas</td>
+</tr>
+<tr>
+<td style="text-align: right">sample</td>
+<td style="text-align: left">assay <br> <em>media</em> <br> <em>strain</em> <br> <em>vector</em> <br> supplements <br> row <br> col</td>
+</tr>
+<tr>
+<td style="text-align: right">signal</td>
+<td style="text-align: left">owner <br> name <br> description <br> color</td>
+</tr>
+<tr>
+<td style="text-align: right">measurement</td>
+<td style="text-align: left">sample <br> signal <br> value <br> time</td>
+</tr>
+</tbody></table>
+<h1 id='functions'>Functions</h1>
+<p>The Flapjack package provides several functions to access the database, and you are able to manipulate them as long as you have permission. Bear in mind that these functions are HTTPS requests.</p>
+<h2 id='1-create-function'>1. Create Function</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">study</span> <span class="o">=</span> <span class="n">fj</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="s">'study'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Test study'</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s">'This is a test'</span><span class="p">)</span>
+</code></pre></div>
+<p>This function allows you to create a new object. Take into consideration that it is necessary to specify all the information needed to create the object, otherwise you will get an error. Refer to <a href="#Table1">Table 1</a>.</p>
+
+<p><code>variable_name = fj.create(&#39;model&#39;, attribute_1=value_1, attribute_n=value_n)</code></p>
+
+<p>Where <code>variable_name</code> is the assigned name for easy later access. <code>fj.create</code> states that the create function is being called. The values accepted for <code>model</code> and <code>attribute</code> are listed in <a href="#Table1">Table 1</a>, and <code>value</code> is the value you wanted to assign to the corresponding attribute.</p>
+
+<aside class="warning">
+Consider that you have to provide every attribute required to the model you are interested in creating, otherwise you’ll get an error.
+</aside>
+
+<p>On the side there is an example of using the create function to create a study called “Test study” and with description “This is a test”:</p>
+
+<p>Take into account that in this example we only provided values for name and description, because these values are required as shown in <a href="#Table1">Table 1</a>.</p>
+<h2 id='2-get-function'>2. Get Function</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">study</span> <span class="o">=</span> <span class="n">fj</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'study'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Context effects'</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<aside class="notice">
+If you specify a value that is not present in the studies that you have access, like writing a wrong name for example, an <code>Empty DataFrame</code> will be retrieved.
+</aside>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+If you type a model that is not present in Flapjack, like typing "studt" instead of "study" you will get an error stating <code>model studt does not exist</code>
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+</blockquote>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>This function retrieves data from a particular table in the database.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<p><code>variable_name = fj.get(&#39;model&#39;, attribute=value)</code></p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+<p>Where <code>variable_name</code> is the assigned name for easy later access. <code>fj.get</code> states that the get function is being called. The values accepted for <code>model</code> and <code>attribute</code> are listed in <a href="#Table1">Table 1</a>, and <code>value</code> is the value you are looking for.
+On the right there is an example of using the get function to find a study called Context effects.</p>
+
+<p>The output of this function is a Pandas DataFrame.</p>
+<h2 id='3-patch-function'>3. Patch Function</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">study</span> <span class="o">=</span> <span class="n">fj</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="s">'study'</span><span class="p">,</span> <span class="n">study</span><span class="p">.</span><span class="nb">id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">'Changed name'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
 <aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+If you type a model that is not present in Flapjack, like typing "studt" instead of "study" you will get an error stating <code>Problem modifying studt</code>
 </aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<aside class="notice">
+If you type a nonexistant id you will get an error stating <code>KeyError</code>
+</aside>
+</blockquote>
+
+<p>This function allows you to modify something that already exists. You have to specify the model id.</p>
+
+<p><code>variable_name = fj.patch(&#39;model&#39;, model.id[id_number], attribute=value)</code></p>
+
+<p>Where <code>variable_name</code> is the assigned name for easy later access. <code>fj.patch</code> states that the patch function is being called and <code>id_number</code> is the id of the study at which the attributes are to be modified. The values accepted for <code>model</code> and <code>attribute</code> are listed in <a href="#Table1">Table 1</a>, and <code>value</code> is the new value you want to assign.</p>
+
+<p>On the size there is an example where we modify the name of the study with id = 0 to “Changed name”.</p>
+<h2 id='4-delete-function'>4. Delete Function</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">deleting_study</span> <span class="o">=</span> <span class="n">fj</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'study'</span><span class="p">,</span> <span class="n">study</span><span class="p">.</span><span class="nb">id</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div>
+<blockquote>
+<p>The following message asking for confirmation will be displayed: <br>
+<code>If you are sure you want to delete study with id=0 type &quot;yes&quot;</code></p>
+
+<aside class="notice">
+If you type a nonexistant id you will get an error stating <code>KeyError</code>
+</aside>
+</blockquote>
+
+<p>Allows you to delete the object. You have to specify the model id.</p>
+
+<p><code>variable_name = fj.delete(&#39;model&#39;, model.id[id_number])</code></p>
+
+<p>Where <code>variable_name</code> is the assigned name for easy later access. <code>fj.delete</code> states that the delete function is being called and <code>id_number</code> is the id of the model at which the attributes are to be modified. The values accepted for <code>model</code> and <code>attribute</code> are listed in <a href="#Table1">Table 1</a>.</p>
+
+<p>On the right sized there is an example of deleting an study with id = 0.</p>
+
+<p>This function retrives a boolean value.</p>
+<h2 id='5-analysis-function'>5. Analysis Function</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">analyzing</span> <span class="o">=</span> <span class="n">fj</span><span class="p">.</span><span class="n">analysis</span><span class="p">(</span><span class="n">study</span><span class="o">=</span><span class="n">study</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span><span class="n">vector</span><span class="o">=</span><span class="n">vector_id</span><span class="p">,</span>
+<span class="n">media</span><span class="o">=</span><span class="n">media_id</span><span class="p">,</span>
+<span class="n">strain</span><span class="o">=</span><span class="n">strain_id</span><span class="p">,</span>
+<span class="nb">type</span><span class="o">=</span><span class="s">'Expression Rate (inverse)'</span><span class="p">,</span>
+<span class="n">eps</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">biomass_signal</span><span class="o">=</span><span class="n">od</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>With this function you can query any of the models described in <a href="#Table1">Table 1</a>. In this example, study, vector, media, and strain compose the query parameters, which gives us a certain combination of data from the database.</p>
+</blockquote>
+
+<p>This function analyze data from a particular table in the database.</p>
+
+<p><code>variable_name = fj.analysis(&#39;model&#39;, type=value, &#39;parameters&#39;)</code></p>
+
+<p>Where <code>variable_name</code> is the assigned name for easy later access. <code>fj.analysis</code> states that the analysis function is being called. The values accepted for <code>model</code> are listed in <a href="#Table1">Table 1</a>, and <code>value</code> and <code>parameters</code> are the type of analysis you want to perform and its requiered parameters, respectively. You can see the full list of available analysis and its parameters in the table bellow.</p>
+
+<p><a name="Table2"></a>
+Table 2. Type of analysis available in Flapjack.</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th style="text-align: right">Analysis</th>
+<th style="text-align: left">Parameters</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td style="text-align: right">Velocity</td>
+<td style="text-align: left"><code>df</code> = data frame to analyse <br> <code>pre_smoothing</code> = Savitsky-Golay filter parameter (window size) <br> <code>post_smoothing</code> = Savitsky-Golay filter parameter (window size)</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td style="text-align: right">Expression Rate (indirect)</td>
+<td style="text-align: left">df <br> density_df <br> pre_smoothing <br> post_smoothing</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td style="text-align: right">Expression Rate (direct)</td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td style="text-align: right">Expression Rate (inverse)</td>
+<td style="text-align: left">eps <br> n_gaussians <br> biomass_signal</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td style="text-align: right">Mean Velocity</td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td style="text-align: right">Max Velocity</td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td style="text-align: right">Mean Expression</td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td style="text-align: right">Max Expression</td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td style="text-align: right">Induction Curve</td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td style="text-align: right">Heatmap</td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td style="text-align: right">Kymograph</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">Alpha</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">Rho</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right">Background Correct</td>
+<td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
+<p>The output of this function is a Pandas DataFrame, similar to the one shown bellow.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: right">Signal_id</th>
+<th style="text-align: right">Signal</th>
+<th>Color</th>
+<th style="text-align: right">Measurement</th>
+<th>Time</th>
+<th style="text-align: right">Sample</th>
+<th>Assay</th>
+<th>Study</th>
+<th style="text-align: right">Media</th>
+<th>Strain</th>
+<th style="text-align: right">Supplement1</th>
+<th style="text-align: right">Chemical1</th>
+<th style="text-align: right">Chemical_id1</th>
+<th style="text-align: right">Concentration</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">0</td>
+<td style="text-align: right">2</td>
+<td style="text-align: right">OD</td>
+<td>black</td>
+<td style="text-align: right">0.00050</td>
+<td>0.194444</td>
+<td style="text-align: right">1374</td>
+<td>c1 rep1</td>
+<td>Context</td>
+<td style="text-align: right">M9-glucose</td>
+<td>MG1655z1</td>
+<td style="text-align: right">NaN</td>
+<td style="text-align: right">NaN</td>
+<td style="text-align: right">NaN</td>
+<td style="text-align: right">NaN</td>
+</tr>
+</tbody></table>
+
+<p>On the right there is an example of an Expression Rate (inverse) analysis.</p>
+<h2 id='6-plot-function'>6. Plot Function</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">figure</span> <span class="o">=</span> <span class="n">fj</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">study</span><span class="o">=</span><span class="n">study</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span><span class="n">vector</span><span class="o">=</span><span class="n">vector_id</span><span class="p">,</span> <span class="n">media</span><span class="o">=</span><span class="n">media_id</span><span class="p">,</span> <span class="n">strain</span><span class="o">=</span><span class="n">strain_id</span><span class="p">,</span>
+<span class="nb">type</span><span class="o">=</span><span class="s">'Expression Rate (inverse)'</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">biomass_signal</span><span class="o">=</span><span class="n">od</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s">'Mean/std'</span><span class="p">,</span> <span class="n">subplots</span><span class="o">=</span><span class="s">'Media'</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="s">'Signal'</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="s">'Mean/std'</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>In this example, <code>normalize=&#39;Mean/std&#39;</code>, <code>subplots=&#39;Media&#39;</code>, <code>markers=&#39;Signal&#39;</code>, and <code>plot=&#39;Mean/std</code> are used as the plotting options.</p>
+
+<aside class="notice">
+You can type <code>None</code> as <code>type</code> to view all the raw data.
+</aside>
+</blockquote>
+
+<p>This function allows you to plot data.</p>
+
+<p>This function analyze data from a particular table in the database.</p>
+
+<p><code>variable_name = fj.analysis(&#39;model&#39;, type=value, &#39;parameters&#39;, plotting_options)</code></p>
+
+<p>Where <code>variable_name</code> is the assigned name for easy later access. <code>fj.analysis</code> states that the analysis function is being called. The values accepted for <code>model</code> are listed in <a href="#Table1">Table 1</a>, <code>value</code> and <code>parameters</code> are the type of analysis you want to perform and its requiered parameters, respectively. You can see the full list of available analysis and its parameters in <a href="#Table2">Table 2</a>. Finally, <code>plotting_options</code> -as their name states- are the options for the plot you want to obtain, the full list of plotting option keys is available bellow.</p>
+
+<p><a name="Table3"></a>
+Table 3. List of plotting options keys and its parameters.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Plot option keys</th>
+<th style="text-align: left">Parameters</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">plot_type</td>
+<td style="text-align: left">timeseries <br> bar <br> induction <br> heatmap <br> kymograph</td>
+</tr>
+<tr>
+<td style="text-align: right">normalize</td>
+<td style="text-align: left">Mean/std</td>
+</tr>
+<tr>
+<td style="text-align: right">subplots</td>
+<td style="text-align: left">Media</td>
+</tr>
+<tr>
+<td style="text-align: right">markers</td>
+<td style="text-align: left">Signal</td>
+</tr>
+<tr>
+<td style="text-align: right">plot</td>
+<td style="text-align: left">Mean/std</td>
+</tr>
+</tbody></table>
+
+<p>The output of this function is a Plotly plot.</p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
