@@ -182,8 +182,8 @@ Table 2. Type of analysis available in Flapjack.
 
 | Analysis | Parameters |
 | -: | :- |
-| Velocity | `df` = data frame to analyse <br> `pre_smoothing` = Savitsky-Golay filter parameter (window size) <br> `post_smoothing` = Savitsky-Golay filter parameter (window size) |
-| Expression Rate (indirect)  | df <br> density_df <br> pre_smoothing <br> post_smoothing |
+| Velocity | `pre_smoothing` = Savitsky-Golay filter parameter (window size) <br> `post_smoothing` = Savitsky-Golay filter parameter (window size) |
+| Expression Rate (indirect)  | density_df <br> pre_smoothing <br> post_smoothing |
 | Expression Rate (direct) |  |
 | Expression Rate (inverse) | eps <br> n_gaussians <br> biomass_signal |
 | Mean Velocity |  |
